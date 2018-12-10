@@ -119,19 +119,25 @@
     <ClCompile Include="AdministrativeRole.cpp" />
     <ClCompile Include="GuestRole.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="PersonRepository.cpp" />
     <ClCompile Include="Role.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="RoomRepository.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="StudentRole.cpp" />
     <ClCompile Include="TeacherRole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Activity.hpp" />
+    <ClInclude Include="ActivityRepository.hpp" />
     <ClInclude Include="AdministrativeRole.hpp" />
     <ClInclude Include="GuestRole.hpp" />
     <ClInclude Include="Person.hpp" />
+    <ClInclude Include="PersonRepository.hpp" />
+    <ClInclude Include="Repository.hpp" />
     <ClInclude Include="Role.hpp" />
     <ClInclude Include="Room.hpp" />
+    <ClInclude Include="RoomRepository.hpp" />
     <ClInclude Include="StudentRole.hpp" />
     <ClInclude Include="TeacherRole.hpp" />
   </ItemGroup>

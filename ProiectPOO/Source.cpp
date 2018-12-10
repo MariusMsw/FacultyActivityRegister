@@ -10,7 +10,8 @@ Author: Mihai Liviu-Marius
 #include "Activity.hpp"
 #include "Role.hpp"
 #include "Person.hpp" 
- 
+#include "PersonRepository.hpp"
+
 int main()
 { 
 	std::vector<Room*> rooms;
@@ -31,6 +32,11 @@ int main()
 	persoane[1]->addRole(teacher1);
 
 	Activity *activitate = new Activity(rooms[1], persoane[1], "Laborator POO");
+
+	PersonRepository personRepository;
+
+	personRepository.add(new Person("Mihai", "Marius", "1981001340917", "mariusliviu70@yahoo.com"));
+
 	system("pause");
 	return 0;
 }

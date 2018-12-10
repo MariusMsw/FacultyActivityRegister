@@ -5,7 +5,7 @@
 #include <string>
 #include "Role.hpp"
 #include "TeacherRole.hpp"
-#include "StudentRole.hpp"
+#include "StudentRole.hpp" 
 
 class Person
 {
@@ -25,8 +25,8 @@ public:
 
 	void addRole(Role *role);
 
-	friend std::istream & operator>>(std::istream & stream, const Person & pArg);
-	friend std::ostream & operator<<(std::ostream & stream, const Person & pArg);
+	friend std::istream & operator>>(std::istream & stream, const Person & person);
+	friend std::ostream & operator<<(std::ostream & stream, const Person & person);
 
 	const bool isStudent() const;
 	const bool isTeacher() const;

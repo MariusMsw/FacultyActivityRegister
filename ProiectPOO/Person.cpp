@@ -63,7 +63,7 @@ void Person::addRole(Role *role)
 
 const bool Person::isStudent() const
 {
-	for (int i = 0; i < mRoles.size(); i++)
+	for (unsigned int i = 0; i < mRoles.size(); i++)
 	{
 		if (mRoles[i]->getType() == Role::STUDENT_ROLE)
 			return true;
@@ -73,7 +73,7 @@ const bool Person::isStudent() const
 
 const bool Person::isTeacher() const
 {
-	for (int i = 0; i < mRoles.size(); i++)
+	for (unsigned int i = 0; i < mRoles.size(); i++)
 	{
 		if (mRoles[i]->getType() == Role::TEACHER_ROLE)
 			return true;
@@ -83,28 +83,32 @@ const bool Person::isTeacher() const
 
 Role * Person::getStudentRole() const
 {
-	for (int i = 0; i < mRoles.size(); i++)
+	for (unsigned int i = 0; i < mRoles.size(); i++)
 	{
 		if (mRoles[i]->getType() == Role::STUDENT_ROLE)
 			return mRoles[i];
 	}
+	return NULL;
 }
 
 Role * Person::getTeacherRole() const
 {
-	for (int i = 0; i < mRoles.size(); i++)
+	for (unsigned int i = 0; i < mRoles.size(); i++)
 	{
 		if (mRoles[i]->getType() == Role::TEACHER_ROLE)
 			return mRoles[i];
 	}
+	return NULL;
 }
 
-std::istream & operator>>(std::istream & stream, const Person & person) {
+std::istream & operator>>(std::istream & stream, const Person & person) 
+{
 	stream >> person.mFirstName >> person.mLastName >> person.mEmail >> person.mCNP;
 	return stream;
 }
 
-std::ostream & operator<<(std::ostream & stream, const Person & person) {
+std::ostream & operator<<(std::ostream & stream, const Person & person)
+{
 	stream << person.mFirstName << "\n" << person.mLastName << "\n" << person.mEmail << "\n" << person.mCNP << "\n";
 	return stream;
 }

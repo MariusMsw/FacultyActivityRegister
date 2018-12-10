@@ -13,6 +13,7 @@ public:
 	 
 	Room(std::string name, int capacity);
 	int getCapacity();
+	std::string getName();
 	RoomType getType();
 
 protected:

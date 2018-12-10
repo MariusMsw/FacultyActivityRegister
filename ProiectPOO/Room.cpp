@@ -11,6 +11,11 @@ int Room::getCapacity()
 	return mCapacity;
 }
 
+std::string Room::getName()
+{
+	return mName;
+}
+
 Room::RoomType Room::getType()
 {
 	return mType;

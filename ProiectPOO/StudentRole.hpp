@@ -11,7 +11,7 @@ public:
 	StudentRole(int group = 0, std::string specialisation = "", int nrCourses = 0);
 	void setGroup(int group);
 	int getGroup();
-	 
+	  
 	void setSpecialisation(std::string specialisation);
 	std::string getSpecialisation();
 
