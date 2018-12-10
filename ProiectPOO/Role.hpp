@@ -5,7 +5,7 @@
 
 class Role
 { 
-public:
+public: 
 
 	enum RoleType {
 		STUDENT_ROLE,

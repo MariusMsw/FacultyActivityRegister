@@ -3,7 +3,7 @@
 Room::Room(std::string name, int capacity)
 {
 	mName = name;
-	mCapacity = capacity;
+	mCapacity = capacity; 
 }
 
 int Room::getCapacity()

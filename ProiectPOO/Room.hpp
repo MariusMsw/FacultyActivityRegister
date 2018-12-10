@@ -5,7 +5,7 @@
 #include <string>
 
 class Room
-{
+{ 
 public:
 	enum RoomType {AMPHITHEATER_ROOM,
 	LABORATORY_ROOM,

@@ -7,7 +7,7 @@ mNrCourses(nrCourses)
 {
 
 }
-
+ 
 void StudentRole::setGroup(int group)
 {
 	mGroup = group;

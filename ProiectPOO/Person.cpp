@@ -5,7 +5,7 @@ Person::Person(std::string FirstName, std::string LastName, std::string CNP, std
 	mFirstName = FirstName;
 	mLastName = LastName;
 	mCNP = CNP;
-	mEmail = Email;
+	mEmail = Email; 
 }
  
 Person::Person(const Person & person)

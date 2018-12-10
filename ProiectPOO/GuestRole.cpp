@@ -3,3 +3,4 @@
 GuestRole::GuestRole() : Role(GUEST_ROLE)
 {
 }
+ 

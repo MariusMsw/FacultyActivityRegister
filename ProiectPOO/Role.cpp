@@ -3,7 +3,7 @@
 Role::Role(RoleType type)
 	:mType(type)
 {
-}
+} 
 
 Role::RoleType Role::getType()
 { 

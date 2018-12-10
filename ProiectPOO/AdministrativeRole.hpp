@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 
-class AdministrativeRole : public Role
+class AdministrativeRole : public Role 
 {
 public:
 	AdministrativeRole();

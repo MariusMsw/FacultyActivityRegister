@@ -7,7 +7,7 @@
 
 class StudentRole : public Role
 {
-public:
+public: 
 	StudentRole(int group = 0, std::string specialisation = "", int nrCourses = 0);
 	void setGroup(int group);
 	int getGroup();
