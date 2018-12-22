@@ -14,10 +14,10 @@ Person * PersonRepository::findByFullName(std::string &firstName, std::string &l
 	}
 	return NULL;
 }
-
+  
 Person * PersonRepository::findByCNP(std::string cnp)
 {
-	for (int i = 0; i < mEntities.size(); i++)
+	for (unsigned int i = 0; i < mEntities.size(); i++)
 		if (mEntities[i]->getCNP() == cnp)
 			return mEntities[i];
 	return NULL;

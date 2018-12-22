@@ -11,7 +11,7 @@ Room * RoomRepository::findByName(const std::string & name)
 			return mEntities[i];
 	return NULL;
 }
-
+ 
 std::vector<Room*> RoomRepository::findRoomsOfType(Room::RoomType type)
 {
 	std::vector<Room*> roomsFound;

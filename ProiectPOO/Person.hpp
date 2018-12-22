@@ -4,9 +4,7 @@
 #include <vector>
 #include <string>
 #include "Role.hpp"
-#include "TeacherRole.hpp"
-#include "StudentRole.hpp" 
-
+ 
 class Person
 {
 public:
@@ -33,8 +31,6 @@ public:
 
 	Role *getStudentRole() const;
 	Role *getTeacherRole() const;
-
-	std::vector <Role*> getRoles() const;
 
 private:
 	

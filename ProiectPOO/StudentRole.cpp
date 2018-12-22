@@ -12,7 +12,7 @@ void StudentRole::setGroup(int group)
 {
 	mGroup = group;
 }
- 
+  
 int StudentRole::getGroup()
 {
 	return mGroup;
@@ -36,4 +36,14 @@ void StudentRole::setNrCourses(int nrCourses)
 int StudentRole::getNrCourses()
 {
 	return mNrCourses;
+}
+
+std::vector<Discipline*> StudentRole::getDisciplines()
+{
+	return mDisciplines;
+}
+
+void StudentRole::addDiscipline(Discipline * discipline)
+{
+	mDisciplines.push_back(discipline);
 }

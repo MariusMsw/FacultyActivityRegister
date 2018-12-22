@@ -1,5 +1,5 @@
 #pragma once
-
+ 
 #include <iostream>
 #include <vector>
 #include <string> 
@@ -10,6 +10,15 @@ class Activity
 {
 public:
 	Activity(Room *location, Person *owner, std::string description);
+
+	void setLocation(Room *location);
+	Room *getLocation();
+
+	void setOwner(Person *owner);
+	Person* getOwner();
+
+	void setDescription(std::string description);
+	std::string getDescription();
 
 private:
 	Room *mLocation;

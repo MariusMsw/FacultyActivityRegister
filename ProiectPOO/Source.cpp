@@ -11,7 +11,9 @@ Author: Mihai Liviu-Marius
 #include "Role.hpp"
 #include "Person.hpp" 
 #include "PersonRepository.hpp"
-
+#include "StudentRole.hpp"
+#include "TeacherRole.hpp"
+ 
 int main()
 { 
 	std::vector<Room*> rooms;

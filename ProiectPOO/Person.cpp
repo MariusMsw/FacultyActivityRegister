@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Person.hpp"
 
 Person::Person(std::string FirstName, std::string LastName, std::string CNP, std::string Email)
@@ -15,7 +16,7 @@ Person::Person(const Person & person)
 	mLastName = person.mLastName;
 	mEmail = person.mEmail;
 }
-
+ 
 void Person::setFirstName(std::string FirstName)
 {
 	mFirstName = FirstName;

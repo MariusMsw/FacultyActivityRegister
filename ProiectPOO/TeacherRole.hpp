@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include "Role.hpp"
- 
+  
 class TeacherRole : public Role
 {
 public:

@@ -1,10 +1,12 @@
 #pragma once
 
 #include "Role.hpp"
+#include "Grade.hpp"
+#include "Discipline.hpp"
 #include <iostream>
 #include <vector>
 #include <string>
-
+ 
 class StudentRole : public Role
 {
 public: 
@@ -18,9 +20,14 @@ public:
 	void setNrCourses(int nrCourses);
 	int getNrCourses();
 
+	std::vector<Discipline*> getDisciplines();
+	void addDiscipline(Discipline* discipline);
+
 private:
 	int mGroup;
 	std::string mSpecialisation;
+	std::vector <Grade*> mGrades;
+	std::vector <Discipline*> mDisciplines;
 	int mNrCourses;
 };
 

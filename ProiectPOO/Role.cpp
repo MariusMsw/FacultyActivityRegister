@@ -9,3 +9,4 @@ Role::RoleType Role::getType()
 { 
 	return mType;
 }
+ 
