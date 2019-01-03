@@ -21,9 +21,9 @@ int main()
 	rooms.push_back(new Room("Dimitrie Pompeiu", 150));
 	rooms.push_back(new Room("Laborator 321", 25));
 
-	StudentRole *student1 = new StudentRole(252, "CTI", 7);
+	StudentRole *student1 = new StudentRole(252, 2, "CTI", 7);
 	TeacherRole *teacher1 = new TeacherRole({ "POO", "ASD" });
-	StudentRole *student2 = new StudentRole(452, "CTI", 6);
+	StudentRole *student2 = new StudentRole(452, 4, "CTI", 6);
 
 	std::vector<Person*> persoane;
 	persoane.push_back(new Person("Mihai", "Marius", "1981001340917", "mariusliviu70@yahoo.com"));

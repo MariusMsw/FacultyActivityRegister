@@ -1,11 +1,27 @@
 #include "Grade.hpp"
 
-void Grade::setGrade(float grade)
+Grade::Grade(double grade, Discipline *discipline)
+{
+	mGrade = grade;
+	mDiscipline = discipline;
+}
+
+void Grade::setGrade(double grade)
 {
 	mGrade = grade;
 }
 
-float Grade::getGrade()
+double Grade::getGrade()
 {
 	return mGrade;
-} 
+}
+
+void Grade::setDiscipline(Discipline * discipline)
+{
+	mDiscipline = discipline;
+}
+
+Discipline * Grade::getDiscipline()
+{
+	return mDiscipline;
+}

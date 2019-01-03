@@ -13,19 +13,20 @@ void Activity::setLocation(Room * location)
 	mLocation = location;
 }
 
-Room * Activity::getLocation()
+std::string Activity::getLocation()
 {
-	return mLocation;
+	return this->mLocation->getName();
 }
+
 
 void Activity::setOwner(Person * owner)
 {
 	mOwner = owner;
 }
 
-Person * Activity::getOwner()
+std::string Activity::getOwner()
 {
-	return mOwner;
+	return this->mOwner->getLastName();
 }
 
 void Activity::setDescription(std::string description)
@@ -35,6 +36,6 @@ void Activity::setDescription(std::string description)
 
 std::string Activity::getDescription()
 {
-	return mDescription;
+	return this->mDescription;
 }
 

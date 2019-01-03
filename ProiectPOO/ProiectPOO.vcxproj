@@ -116,8 +116,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Activity.cpp" />
+    <ClCompile Include="ActivityRepository.cpp" />
     <ClCompile Include="AdministrativeRole.cpp" />
     <ClCompile Include="Discipline.cpp" />
+    <ClCompile Include="DisciplineRepository.cpp" />
     <ClCompile Include="Grade.cpp" />
     <ClCompile Include="GuestRole.cpp" />
     <ClCompile Include="pch.cpp" />
@@ -128,6 +130,7 @@
     <ClCompile Include="RoomRepository.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="StudentRegister.cpp" />
+    <ClCompile Include="StudentRepository.cpp" />
     <ClCompile Include="StudentRole.cpp" />
     <ClCompile Include="TeacherRole.cpp" />
   </ItemGroup>
@@ -136,6 +139,7 @@
     <ClInclude Include="ActivityRepository.hpp" />
     <ClInclude Include="AdministrativeRole.hpp" />
     <ClInclude Include="Discipline.hpp" />
+    <ClInclude Include="DisciplineRepository.hpp" />
     <ClInclude Include="Grade.hpp" />
     <ClInclude Include="GuestRole.hpp" />
     <ClInclude Include="pch.h" />
@@ -146,6 +150,7 @@
     <ClInclude Include="Room.hpp" />
     <ClInclude Include="RoomRepository.hpp" />
     <ClInclude Include="StudentRegister.hpp" />
+    <ClInclude Include="StudentRepository.hpp" />
     <ClInclude Include="StudentRole.hpp" />
     <ClInclude Include="TeacherRole.hpp" />
   </ItemGroup>

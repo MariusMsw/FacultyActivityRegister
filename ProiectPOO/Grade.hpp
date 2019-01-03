@@ -3,9 +3,14 @@
  
 class Grade {
 public:
-	void setGrade(float grade);
-	float getGrade();
+	Grade(double grade, Discipline *discipline);
+	void setGrade(double grade);
+	double getGrade();
+
+	void setDiscipline(Discipline *discipline);
+	Discipline *getDiscipline();
+
 private:
-	float mGrade;
+	double mGrade;
 	Discipline *mDiscipline;
 };

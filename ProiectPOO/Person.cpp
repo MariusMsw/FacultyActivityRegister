@@ -62,6 +62,16 @@ void Person::addRole(Role *role)
 	mRoles.push_back(role);
 }
 
+
+Role* Person::displayRole(int role)
+{
+	for (unsigned int i = 0; i < mRoles.size(); i++)
+	{
+		if (role == mRoles[i]->getType())
+			return mRoles[i];
+	}
+	return nullptr;
+}
 const bool Person::isStudent() const
 {
 	for (unsigned int i = 0; i < mRoles.size(); i++)

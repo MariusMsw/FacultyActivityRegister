@@ -22,3 +22,22 @@ Person * PersonRepository::findByCNP(std::string cnp)
 			return mEntities[i];
 	return NULL;
 }
+
+Person * PersonRepository::findByEmail(std::string email)
+{
+	for (unsigned int i = 0; i < mEntities.size(); i++)
+		if (mEntities[i]->getEmail() == email)
+			return mEntities[i];
+	return NULL;
+}
+
+std::vector<Person*> PersonRepository::findByRole(Role *role)
+{
+	std::vector<Person*> persons = { 0 };
+	for (unsigned int i = 0; i < mEntities.size(); i++)
+	{
+			if (mEntities[i]->getStudentRole() == role || mEntities[i]->getTeacherRole() == role)
+				persons.push_back(mEntities[i]);
+	}
+		return persons;
+}

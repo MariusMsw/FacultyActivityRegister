@@ -3,21 +3,18 @@
 #include <iostream>
 #include <string>
  
-class Role
-{ 
-public: 
-
-	enum RoleType {
-		STUDENT_ROLE,
+class Role {
+public:
+	enum RoleType
+	{
+		STUDENT_ROLE = 1,
 		TEACHER_ROLE,
-		ADMINISTRATIVE_ROLE,
-		GUEST_ROLE
+		GUEST_ROLE,
+		ADMINISTRATIVE_ROLE
 	};
-
 	Role(RoleType type);
+	virtual ~Role() {}
 	RoleType getType();
-
-protected:
+private:
 	RoleType mType;
 };
-

@@ -12,10 +12,10 @@ public:
 	Activity(Room *location, Person *owner, std::string description);
 
 	void setLocation(Room *location);
-	Room *getLocation();
+	std::string getLocation();
 
 	void setOwner(Person *owner);
-	Person* getOwner();
+	std::string getOwner();
 
 	void setDescription(std::string description);
 	std::string getDescription();
