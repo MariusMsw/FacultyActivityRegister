@@ -122,6 +122,7 @@
     <ClCompile Include="DisciplineRepository.cpp" />
     <ClCompile Include="Grade.cpp" />
     <ClCompile Include="GuestRole.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PersonRepository.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="DisciplineRepository.hpp" />
     <ClInclude Include="Grade.hpp" />
     <ClInclude Include="GuestRole.hpp" />
+    <ClInclude Include="Menu.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Person.hpp" />
     <ClInclude Include="PersonRepository.hpp" />

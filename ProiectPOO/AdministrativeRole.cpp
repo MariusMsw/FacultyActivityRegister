@@ -6,6 +6,11 @@ AdministrativeRole::AdministrativeRole()
 	:Role(Role::ADMINISTRATIVE_ROLE)
 {}
 
+AdministrativeRole::AdministrativeRole(int room) : Role(Role::ADMINISTRATIVE_ROLE)
+{
+	mRoom = room;
+}
+
 AdministrativeRole::AdministrativeRole(std::vector<Room*> rooms)
 	: Role(Role::ADMINISTRATIVE_ROLE)
 {

@@ -10,6 +10,7 @@ class AdministrativeRole : public Role
 {
 public:
 	AdministrativeRole();
+	AdministrativeRole(int room);
 	AdministrativeRole(std::vector<Room*> rooms);
 	AdministrativeRole(Room* roomName);
 	Room* getRoom(std::string roomName);
@@ -17,6 +18,7 @@ public:
 	void addRoom(Room* roomName);
 	void removeRoom(std::string roomName);
 private:
+	int mRoom;
 	std::vector<Room*> mRooms;
 };
 

@@ -62,6 +62,19 @@ void Person::addRole(Role *role)
 	mRoles.push_back(role);
 }
 
+void Person::removeRole(int role)
+{
+	std::vector<Role*>::iterator i;
+	for (i = mRoles.begin(); i != mRoles.end(); i++)
+	{
+		if ((*i)->getType() == role)
+		{
+			mRoles.erase(i);
+			break;
+		}
+	}
+}
+
 
 Role* Person::displayRole(int role)
 {
@@ -72,6 +85,12 @@ Role* Person::displayRole(int role)
 	}
 	return nullptr;
 }
+
+std::vector<Role*> Person::getRole()
+{
+	return mRoles;
+}
+
 const bool Person::isStudent() const
 {
 	for (unsigned int i = 0; i < mRoles.size(); i++)

@@ -4,6 +4,7 @@
 
 class Discipline {
 public:
+	Discipline(std::string name);
 	Discipline(std::string name, Activity *activity);
 	Discipline(std::string name, std::vector<Activity*> activities);
 

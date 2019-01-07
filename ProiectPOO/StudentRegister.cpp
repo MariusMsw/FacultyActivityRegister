@@ -12,7 +12,7 @@ void StudentRegister::addStudentToRegister(Person * student)
 	mStudents.push_back(student);
 }
 
-Person * StudentRegister::searchByFullName(std::string lastName, std::string firstName)
+Person * StudentRegister::findByFullName(std::string lastName, std::string firstName)
 {	
 	std::vector<Person*>::iterator i;
 	for (i = mStudents.begin(); i != mStudents.end(); i++)
@@ -23,7 +23,7 @@ Person * StudentRegister::searchByFullName(std::string lastName, std::string fir
 	return nullptr;
 }
 
-Person * StudentRegister::searchByCNP(std::string CNP)
+Person * StudentRegister::findByCNP(std::string CNP)
 {
 	std::vector<Person*>::iterator i;
 	for (i = mStudents.begin(); i != mStudents.end(); i++)
@@ -34,7 +34,7 @@ Person * StudentRegister::searchByCNP(std::string CNP)
 	return nullptr;
 }
 
-Person * StudentRegister::searchByEmail(std::string email)
+Person * StudentRegister::findByEmail(std::string email)
 {
 	std::vector<Person*>::iterator i;
 	for (i = mStudents.begin(); i != mStudents.end(); i++)

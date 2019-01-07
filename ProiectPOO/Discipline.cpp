@@ -1,5 +1,10 @@
 #include "Discipline.hpp"
 
+Discipline::Discipline(std::string name)
+{
+	mName = name;
+}
+
 Discipline::Discipline(std::string name, Activity * activity)
 {
 	mName = name;

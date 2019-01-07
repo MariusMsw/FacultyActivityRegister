@@ -1,11 +1,51 @@
 #include "TeacherRole.hpp"
 
-TeacherRole::TeacherRole(std::vector<std::string> courses) : Role(TEACHER_ROLE),
-mCourses(courses)
+TeacherRole::TeacherRole(std::string discipline) : Role(Role::TEACHER_ROLE)
 {
+	mDiscipline = discipline;
 }
-std::vector<std::string> TeacherRole::getCourses()
-{ 
+
+TeacherRole::TeacherRole(std::vector<Discipline*> courses) : Role(Role::TEACHER_ROLE)
+{
+	mCourses = courses;
+}
+
+std::vector<Discipline*> TeacherRole::getCourses()
+{
 	return mCourses;
 }
-  
+
+void TeacherRole::addDiscipline(Discipline * discipline)
+{
+	for (unsigned int i = 0; i < mCourses.size(); i++)
+	{
+		if (mCourses[i] == discipline)
+			return;
+	}
+
+	mCourses.push_back(discipline);
+}
+
+void TeacherRole::removeDiscipline(Discipline * discipline)
+{
+	for (unsigned int i = 0; i < mCourses.size(); i++)
+	{
+		if (mCourses[i] == discipline)
+		{
+			mCourses.erase(mCourses.begin() + i);
+			return;
+		}
+	}
+}
+
+bool TeacherRole::hasDiscipline(Discipline * discipline)
+{
+	for (unsigned int i = 0; i < mCourses.size(); i++)
+	{
+		if (mCourses[i] == discipline) {
+			return true;
+		}
+	}
+
+	return false;
+}

@@ -4,12 +4,18 @@
 #include <vector>
 #include <string>
 #include "Role.hpp"
+#include "Discipline.hpp"
   
 class TeacherRole : public Role
 {
 public:
-	TeacherRole(std::vector<std::string> courses = {});
-	std::vector<std::string> getCourses();
+	TeacherRole(std::string discipline);
+	TeacherRole(std::vector<Discipline*> courses);
+	std::vector<Discipline *> getCourses();
+	void addDiscipline(Discipline *discipline);
+	void removeDiscipline(Discipline *discipline);
+	bool hasDiscipline(Discipline *discipline);
 private: 
-	std::vector<std::string> mCourses;
+	std::string mDiscipline;
+	std::vector<Discipline *> mCourses;
 };

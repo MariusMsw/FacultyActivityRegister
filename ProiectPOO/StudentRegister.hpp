@@ -7,9 +7,9 @@ class StudentRegister {
 public:
 	StudentRegister(int group = 0, int year = 0);
 	void addStudentToRegister(Person *student);
-	Person *searchByFullName(std::string lastName, std::string firstName);
-	Person *searchByCNP(std::string CNP);
-	Person *searchByEmail(std::string email);
+	Person *findByFullName(std::string lastName, std::string firstName);
+	Person *findByCNP(std::string CNP);
+	Person *findByEmail(std::string email);
 	void removeByCNP(std::string CNP);
 	std::vector<Person*> getStudents();
 	void addGrade(double grade, Discipline *discipline, std::string lastName, std::string firstName);

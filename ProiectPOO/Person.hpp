@@ -22,8 +22,8 @@ public:
 	std::string getCNP();
 
 	void addRole(Role *role);
+	void removeRole(int role);
 	Role* displayRole(int role);
-
 	friend std::istream & operator>>(std::istream & stream, const Person & person);
 	friend std::ostream & operator<<(std::ostream & stream, const Person & person);
 
