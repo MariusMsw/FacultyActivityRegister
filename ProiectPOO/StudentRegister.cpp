@@ -1,3 +1,9 @@
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
+
 #include "StudentRegister.hpp"
 #include "StudentRole.hpp"
 
@@ -7,7 +13,7 @@ StudentRegister::StudentRegister(int group, int year)
 	mYear = year;
 }
 
-void StudentRegister::addStudentToRegister(Person * student)
+void StudentRegister::addStudentToRegister(Person *student)
 {
 	mStudents.push_back(student);
 }

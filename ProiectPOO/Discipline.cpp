@@ -1,4 +1,9 @@
 #include "Discipline.hpp"
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
 
 Discipline::Discipline(std::string name)
 {

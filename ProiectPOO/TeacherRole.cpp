@@ -1,3 +1,9 @@
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
+
 #include "TeacherRole.hpp"
 
 TeacherRole::TeacherRole(std::string discipline) : Role(Role::TEACHER_ROLE)

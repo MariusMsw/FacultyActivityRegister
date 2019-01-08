@@ -1,6 +1,10 @@
 #include "AdministrativeRole.hpp"
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
 
-#include "AdministrativeRole.hpp"
 
 AdministrativeRole::AdministrativeRole()
 	:Role(Role::ADMINISTRATIVE_ROLE)

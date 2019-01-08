@@ -1,3 +1,9 @@
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
+
 #include "pch.h"
 #include "Person.hpp"
 #include "StudentRole.hpp"
@@ -77,7 +83,6 @@ void Person::removeRole(int role)
 	}
 }
 
-
 Role* Person::displayRole(int role)
 {
 	for (unsigned int i = 0; i < mRoles.size(); i++)
@@ -128,7 +133,8 @@ Role * Person::getTeacherRole() const
 	return NULL;
 }
 
-std::istream& operator >> (std::istream& stream, Person& object) {
+std::istream& operator >> (std::istream& stream, Person& object)
+{
 	std::cout << "CNP = ";
 	stream >> object.mCNP;
 	std::cout << "email = ";
@@ -140,7 +146,8 @@ std::istream& operator >> (std::istream& stream, Person& object) {
 	return stream;
 }
 
-std::ostream& operator << (std::ostream& stream, Person& object) {
+std::ostream& operator << (std::ostream& stream, Person& object)
+{
 	stream << "CNP = " << object.mCNP << "\n";
 	stream << "Email = " << object.mEmail << "\n";
 	stream << "First name = " << object.mFirstName << "\n";

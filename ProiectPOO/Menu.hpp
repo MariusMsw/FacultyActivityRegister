@@ -1,4 +1,9 @@
 #pragma once
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
 
 #include "PersonRepository.hpp"
 #include "RoomRepository.hpp"

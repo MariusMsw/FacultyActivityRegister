@@ -1,3 +1,9 @@
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
+
 #include "StudentRepository.hpp"
 
 StudentRegister *StudentRepository::findByGroupAndYear(int group, int year)

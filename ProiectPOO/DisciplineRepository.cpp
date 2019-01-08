@@ -1,4 +1,9 @@
 #include "DisciplineRepository.hpp"
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
 
 Discipline *DisciplineRepository::findByName(std::string name)
 {

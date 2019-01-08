@@ -1,4 +1,9 @@
 #include "ActivityRepository.hpp"
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
 
 Activity * ActivityRepository::findByLocation(std::string location)
 {

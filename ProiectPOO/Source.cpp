@@ -1,6 +1,7 @@
 /***************************************************************************************************
 Object-oriented programming second homework
-Author: Mihai Liviu-Marius
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
 ***************************************************************************************************/
 
 #include <iostream>

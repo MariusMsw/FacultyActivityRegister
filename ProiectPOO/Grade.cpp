@@ -1,4 +1,9 @@
 #include "Grade.hpp"
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
 
 Grade::Grade(double grade, Discipline *discipline)
 {

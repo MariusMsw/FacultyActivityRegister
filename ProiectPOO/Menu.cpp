@@ -1,3 +1,9 @@
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
+
 #include "Menu.hpp"
 #include "StudentRole.hpp"
 #include "TeacherRole.hpp"
@@ -20,148 +26,164 @@ bool Menu::checkInput(std::string input)
 
 void Menu::startMenu()
 {
-	std::cout << "Start Menu\n ";
-	std::cout << "1.Persons\n 2.Activities\n 3.Disciplines\n 4.StudentRegister\n 5.Repositories\n 6.Exit\n";
-	std::string input;
+	int numberOfExecutions = 0;
+	do {
+		std::cout << "Start Menu\n ";
+		std::cout << "1.Persons\n 2.Activities\n 3.Disciplines\n 4.StudentRegister\n 5.Repositories\n 6.Exit\n";
+		std::string input;
 
-	do{
-		std::cout << "Choice: ";
-		std::cin >> input;
-	} while (!checkInput(input));
+		do {
+			std::cout << "Choice: ";
+			std::cin >> input;
+		} while (!checkInput(input));
 
-	int inputAsInt = std::stoi(input);
-	switch (inputAsInt)
-	{
-	case Type::PERSON:
-		system("cls");
-		personMenu();
-		break;
-	case Type::ACTIVITY:
-		system("cls");
-		activityMenu();
-		break;
-	case Type::DISCIPLINE:
-		system("cls");
-		disciplineMenu();
-		break;
-	case Type::STUDENTREGISTER:
-		system("cls");
-		studentRegisterMenu();
-		break;
-	case Type::REPOSITORY:
-		system("cls");
-		repositoryMenu();
-		break;
-	case Type::EXIT:
-		system("cls");
-		break;
-	default:
-		std::cout << "Wrong input!";
-	}
+		int inputAsInt = std::stoi(input);
+		switch (inputAsInt)
+		{
+		case Type::PERSON:
+			system("cls");
+			personMenu();
+			break;
+		case Type::ACTIVITY:
+			system("cls");
+			activityMenu();
+			break;
+		case Type::DISCIPLINE:
+			system("cls");
+			disciplineMenu();
+			break;
+		case Type::STUDENTREGISTER:
+			system("cls");
+			studentRegisterMenu();
+			break;
+		case Type::REPOSITORY:
+			system("cls");
+			repositoryMenu();
+			break;
+		case Type::EXIT:
+			numberOfExecutions = 6;
+			system("pause");
+			exit(EXIT_SUCCESS);
+		default:
+			std::cout << "Wrong input!";
+		}
+	} while (numberOfExecutions != 6);
 }
 
 void Menu::personMenu()
 {
+	int numberOfExecutions = 0;
 	enum Type
 	{
 		ADD_PERSON = 1,
 		DELETE_PERSON,
 		ADD_ROLE,
-		REMOVE_ROLE
+		REMOVE_ROLE,
+		RETURN
 	};
 
-	std::cout << " Person Menu\n";
-	std::cout << "1.Add Person\n 2.Delete Person\n 3.Add role to a person\n 4.Remove role from a person\n";
-	std::string input;
+	do {
+		std::cout << " Person Menu\n";
+		std::cout << "1.Add Person\n 2.Delete Person\n 3.Add role to a person\n 4.Remove role from a person\n 5.Return to previous menu\n";
+		std::string input;
 
-	do
-	{
-		std::cout << "Choice: ";
-		std::cin >> input;
-	} while (!checkInput(input));
-
-	int inputAsInt = std::stoi(input);
-
-	switch (inputAsInt)
-	{
-	case ADD_PERSON:
-		system("cls");
-		addPerson();
-		break;
-	case DELETE_PERSON:
-		system("cls");
-		deletePerson();
-		break;
-	case ADD_ROLE:
-	{
-		system("cls");
-		std::string firstName, lastName;
-		std::cout << "first name = ";
-		std::cin >> firstName;
-		std::cout << "last name = ";
-		std::cin >> lastName;
-		Person *person = NULL;
-		try
+		do
 		{
-			person = persons.findByFullName(firstName, lastName);
-		}
-		catch (std::runtime_error const &e)
-		{
-			std::cout << e.what() << "\n";
-		}
+			std::cout << "Choice: ";
+			std::cin >> input;
+		} while (!checkInput(input));
 
-		addRole(person);
-		system("cls");
-		break; }
-	case REMOVE_ROLE:
-		system("cls");
-		removeRole();
-	default:
-		std::cout << "Wrong input!";
-	}
+		int inputAsInt = std::stoi(input);
+
+		switch (inputAsInt)
+		{
+		case ADD_PERSON:
+			system("cls");
+			addPerson();
+			break;
+		case DELETE_PERSON:
+			system("cls");
+			deletePerson();
+			break;
+		case ADD_ROLE:
+		{
+			system("cls");
+			std::string firstName, lastName;
+			std::cout << "first name = ";
+			std::cin >> firstName;
+			std::cout << "last name = ";
+			std::cin >> lastName;
+			Person *person = NULL;
+			try
+			{
+				person = persons.findByFullName(firstName, lastName);
+			}
+			catch (std::runtime_error const &e)
+			{
+				std::cout << e.what() << "\n";
+			}
+
+			addRole(person);
+			system("cls");
+			break; }
+		case REMOVE_ROLE:
+			system("cls");
+			removeRole();
+		case RETURN:
+			system("cls");
+			startMenu();
+				break;
+		default:
+			std::cout << "Wrong input!";
+		}
+	} while (numberOfExecutions != 5);
 }
 
 void Menu::activityMenu()
 {
+	int numberOfExecutions = 0;
 	enum Type
 	{
 		ADD_ACTIVITY = 1,
 		DELETE_ACTIVITY,
 		RETURN
 	};
+	do {
+		std::cout << " Activity Menu\n";
+		std::cout << "1.Add Activity\n 2.Delete Activity\n 3.Return\n";
+		std::string input;
 
-	std::cout << " Activity Menu\n";
-	std::cout << "1.Add Activity\n 2.Delete Activity\n 3.Return\n";
-	std::string input;
+		do
+		{
+			std::cout << "Choice: ";
+			std::cin >> input;
+		} while (!checkInput(input));
 
-	do
-	{
-		std::cout << "Choice: ";
-		std::cin >> input;
-	} while (!checkInput(input));
+		int inputAsInt = std::stoi(input);
 
-	int inputAsInt = std::stoi(input);
-
-	switch (inputAsInt)
-	{
-	case ADD_ACTIVITY:
-		system("cls");
-		addActivity();
-		break;
-	case DELETE_ACTIVITY:
-		system("cls");
-		deleteActivity();
-		break;
-	case RETURN:
-		system("cls");
-		break;
-	default:
-		std::cout << "Wrong input";
-	}
+		switch (inputAsInt)
+		{
+		case ADD_ACTIVITY:
+			system("cls");
+			addActivity();
+			break;
+		case DELETE_ACTIVITY:
+			system("cls");
+			deleteActivity();
+			break;
+		case RETURN:
+			system("cls");
+			startMenu();
+			break;
+		default:
+			std::cout << "Wrong input";
+		}
+	} while (numberOfExecutions != 3);
 }
 
 void Menu::disciplineMenu()
 {
+	int numberOfExecutions = 0;
 	enum Type
 	{
 		ADD_DISCIPLINE = 1,
@@ -170,46 +192,50 @@ void Menu::disciplineMenu()
 		REMOVE_STUDENT,
 		RETURN
 	};
-
-	std::cout << " Discipline Menu\n";
-	std::cout << "1.Add discipline\n 2.Delete discipline \n3.Add student to discipline \n 4. Remove student\n 5.Return\n";
-
-	std::string input;
-	do
+	do 
 	{
-		std::cout << "Choice: ";
+		std::cout << " Discipline Menu\n";
+		std::cout << "1.Add discipline\n 2.Delete discipline \n3.Add student to discipline \n 4. Remove student\n 5.Return\n";
+
+		std::string input;
+		do
+		{
+			std::cout << "Choice: ";
 			std::cin >> input;
-	} while (!checkInput(input));
+		} while (!checkInput(input));
 
-	int inputAsInt = std::stoi(input);
-	switch (inputAsInt)
-	{
-	case ADD_DISCIPLINE:
-		system("cls");
-		addDiscipline();
-		break;
-	case DELETE_DISCIPLINE:
-		system("cls");
-		deleteDiscipline();
-		break;
-	case ADD_STUDENT_TO_DISCIPLINE:
-		system("cls");
-		addStudentToDiscipline();
-		break;
-	case REMOVE_STUDENT:
-		system("cls");
-		removeStudentFromDiscipline();
-		break;
-	case RETURN:
-		system("cls");
-		break;
-	default:
-		std::cout << "Wrong input!\n";
-	}
+		int inputAsInt = std::stoi(input);
+		switch (inputAsInt)
+		{
+		case ADD_DISCIPLINE:
+			system("cls");
+			addDiscipline();
+			break;
+		case DELETE_DISCIPLINE:
+			system("cls");
+			deleteDiscipline();
+			break;
+		case ADD_STUDENT_TO_DISCIPLINE:
+			system("cls");
+			addStudentToDiscipline();
+			break;
+		case REMOVE_STUDENT:
+			system("cls");
+			removeStudentFromDiscipline();
+			break;
+		case RETURN:
+			system("cls");
+			startMenu();
+			break;
+		default:
+			std::cout << "Wrong input!\n";
+		}
+	} while (numberOfExecutions != 5);
 }
 
 void Menu::studentRegisterMenu()
 {
+	int numberOfExecutions = 0;
 	enum Type
 	{
 		CREATE_STUDENT_REGISTER = 1,
@@ -221,84 +247,93 @@ void Menu::studentRegisterMenu()
 		RETURN
 	};
 
-	std::cout << "Student Register Menu\n";
-	std::cout << "1.Create student register\n 2.Delete student register \n3. Add student to register \n";
-	std::cout<<"4.Remove student\n 5.Add grade\n6. Update grade\n 7.Return\n";
-	std::string input;
-
-	do {
-		std::cout << "Choice: ";
-		std::cin >> input;
-	} while (!checkInput(input));
-
-	int inputAsInt = std::stoi(input);
-
-	switch (inputAsInt)
+	do 
 	{
-	case CREATE_STUDENT_REGISTER:
-		system("cls");
-		createStudentRegister();
-		break;
-	case DELETE_STUDENT_REGISTER:
-		system("cls");
-		deleteStudentRegister();
-		break;
-	case ADD_STUDENT:
-		system("cls");
-		addStudent();
-		break;
-	case REMOVE_STUDENT:
-		system("cls");
-		removeStudent();
-		break;
-	case ADD_GRADE:
-		system("cls");
-		addGrade();
-		break;
-	case UPDATE_GRADE:
-		system("cls");
-		updateGrade();
-		break;
-	case RETURN:
-		system("cls");
-		break;
-	default:
-		std::cout << "Wrong input!\n";
-	}
+		std::cout << "Student Register Menu\n";
+		std::cout << "1.Create student register\n 2.Delete student register \n3. Add student to register \n";
+		std::cout << "4.Remove student\n 5.Add grade\n6. Update grade\n 7.Return\n";
+		std::string input;
+
+		do
+		{
+			std::cout << "Choice: ";
+			std::cin >> input;
+		} while (!checkInput(input));
+
+		int inputAsInt = std::stoi(input);
+
+		switch (inputAsInt)
+		{
+		case CREATE_STUDENT_REGISTER:
+			system("cls");
+			createStudentRegister();
+			break;
+		case DELETE_STUDENT_REGISTER:
+			system("cls");
+			deleteStudentRegister();
+			break;
+		case ADD_STUDENT:
+			system("cls");
+			addStudent();
+			break;
+		case REMOVE_STUDENT:
+			system("cls");
+			removeStudent();
+			break;
+		case ADD_GRADE:
+			system("cls");
+			addGrade();
+			break;
+		case UPDATE_GRADE:
+			system("cls");
+			updateGrade();
+			break;
+		case RETURN:
+			system("cls");
+			startMenu();
+			break;
+		default:
+			std::cout << "Wrong input!\n";
+		}
+	} while (numberOfExecutions != 7);
 }
 
 void Menu::repositoryMenu()
 {
+	int numberOfExecutions = 0;
 	enum Type 
 	{
 		SEARCH_IN_REPOSITORY = 1,
 		RETURN
 	};
-
-	std::cout << "Repository Menu\n";
-	std::cout << "1.Search in repository\n 2.Return\n";
-	std::string input;
-
 	do
 	{
-		std::cout << "Choice:";
-		std::cin >> input;
-	} while (!checkInput(input));
+		std::cout << "Repository Menu\n";
+		std::cout << "1.Search in repository\n 2.Return\n";
+		std::string input;
 
-	int inputAsInt = std::stoi(input);
+		do
+		{
+			std::cout << "Choice:";
+			std::cin >> input;
+		} while (!checkInput(input));
 
-	switch (inputAsInt)
-	{
-	case SEARCH_IN_REPOSITORY:
-		system("cls");
-		searchInRepository();
-		break;
-	case RETURN:
-		system("cls");
-		break;
-	default:
-		std::cout << "Wrong input!\n";
-	}
+		int inputAsInt = std::stoi(input);
+
+		switch (inputAsInt)
+		{
+		case SEARCH_IN_REPOSITORY:
+			system("cls");
+			searchInRepository();
+			break;
+		case RETURN:
+			system("cls");
+			startMenu();
+			break;
+		default:
+			std::cout << "Wrong input!\n";
+		}
+	} while (numberOfExecutions != 2);
 }
 
 void Menu::addPerson()
@@ -660,7 +695,6 @@ void Menu::addStudent()
 		studentRegister = students.findByGroupAndYear(group, year);
 
 		studentRegister->addStudentToRegister(student);
-
 }
 
 void Menu::removeStudent()

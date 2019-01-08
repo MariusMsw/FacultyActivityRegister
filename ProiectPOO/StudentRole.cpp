@@ -1,3 +1,9 @@
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
+
 #include "StudentRole.hpp"
 
 StudentRole::StudentRole(int group, int year, std::string specialisation, int nrCourses) : Role(STUDENT_ROLE),

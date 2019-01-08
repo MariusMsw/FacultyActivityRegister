@@ -1,5 +1,10 @@
 #include "pch.h"
 #include "Activity.hpp"
+/***************************************************************************************************
+Object-oriented programming second homework
+Mihai Liviu-Marius, Faculty of Mathematics and Computer science
+Group 252
+***************************************************************************************************/
 
 Activity::Activity(Room *location, Person *owner, std::string description)
 { 
