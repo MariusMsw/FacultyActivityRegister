@@ -36,5 +36,13 @@ inline void Repository<Entity>::add(Entity *entity)
 template<class Entity>
 inline void Repository<Entity>::remove(Entity *entity)
 {
-	mEntities.erase(std::remove(mEntities.begin(), mEntities.end(), entity), mEntities.end());
+	typename std::vector<Entity*>::iterator i;
+	for (i = mEntities.begin(); i != mEntities.end(); i++)
+	{
+		if (*i == entity)
+		{
+			mEntities.erase(i);
+			break;
+		}
+	}
 }

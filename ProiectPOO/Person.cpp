@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "Person.hpp"
+#include "StudentRole.hpp"
+#include "TeacherRole.hpp"
 
 Person::Person(std::string FirstName, std::string LastName, std::string CNP, std::string Email)
 {
@@ -86,11 +88,6 @@ Role* Person::displayRole(int role)
 	return nullptr;
 }
 
-std::vector<Role*> Person::getRole()
-{
-	return mRoles;
-}
-
 const bool Person::isStudent() const
 {
 	for (unsigned int i = 0; i < mRoles.size(); i++)
@@ -131,14 +128,34 @@ Role * Person::getTeacherRole() const
 	return NULL;
 }
 
-std::istream & operator>>(std::istream & stream, const Person & person) 
-{
-	stream >> person.mFirstName >> person.mLastName >> person.mEmail >> person.mCNP;
+std::istream& operator >> (std::istream& stream, Person& object) {
+	std::cout << "CNP = ";
+	stream >> object.mCNP;
+	std::cout << "email = ";
+	stream >> object.mEmail;
+	std::cout << "first name = ";
+	stream >> object.mFirstName;
+	std::cout << "last name = ";
+	stream >> object.mLastName;
 	return stream;
 }
 
-std::ostream & operator<<(std::ostream & stream, const Person & person)
-{
-	stream << person.mFirstName << "\n" << person.mLastName << "\n" << person.mEmail << "\n" << person.mCNP << "\n";
+std::ostream& operator << (std::ostream& stream, Person& object) {
+	stream << "CNP = " << object.mCNP << "\n";
+	stream << "Email = " << object.mEmail << "\n";
+	stream << "First name = " << object.mFirstName << "\n";
+	stream << "Last name = " << object.mLastName << "\n";
+	StudentRole *studentRole;
+
+	if (object.isStudent())
+	{
+		studentRole = dynamic_cast<StudentRole*>(object.displayRole(1));
+		stream << "year = ";
+		stream << studentRole->getYear() << "\n";
+		stream << "group = ";
+		stream << studentRole->getGroup() << "\n";
+
+	}
+
 	return stream;
 }

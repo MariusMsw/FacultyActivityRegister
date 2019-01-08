@@ -24,8 +24,9 @@ public:
 	void addRole(Role *role);
 	void removeRole(int role);
 	Role* displayRole(int role);
-	friend std::istream & operator>>(std::istream & stream, const Person & person);
-	friend std::ostream & operator<<(std::ostream & stream, const Person & person);
+
+	friend std::istream & operator>>(std::istream & stream, Person & person);
+	friend std::ostream & operator<<(std::ostream & stream, Person & person);
 
 	const bool isStudent() const;
 	const bool isTeacher() const;

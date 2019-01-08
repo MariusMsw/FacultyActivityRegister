@@ -7,7 +7,8 @@
 bool Menu::checkInput(std::string input)
 {
 	int inputAsNumber = 0;
-	try {
+	try 
+	{
 		inputAsNumber = std::stoi(input);
 	}
 	catch (std::invalid_argument)
@@ -19,8 +20,8 @@ bool Menu::checkInput(std::string input)
 
 void Menu::startMenu()
 {
-	std::cout << "Start Menu\n";
-	std::cout << "1. Persons\n 2. Activities\n 3. Disciplines\n 4. StudentRegister\n 5.Repositories\n 6.Exit\n";
+	std::cout << "Start Menu\n ";
+	std::cout << "1.Persons\n 2.Activities\n 3.Disciplines\n 4.StudentRegister\n 5.Repositories\n 6.Exit\n";
 	std::string input;
 
 	do{
@@ -32,27 +33,27 @@ void Menu::startMenu()
 	switch (inputAsInt)
 	{
 	case Type::PERSON:
-		system("clear");
+		system("cls");
 		personMenu();
 		break;
 	case Type::ACTIVITY:
-		system("clear");
+		system("cls");
 		activityMenu();
 		break;
 	case Type::DISCIPLINE:
-		system("clear");
+		system("cls");
 		disciplineMenu();
 		break;
 	case Type::STUDENTREGISTER:
-		system("clear");
+		system("cls");
 		studentRegisterMenu();
 		break;
 	case Type::REPOSITORY:
-		system("clear");
+		system("cls");
 		repositoryMenu();
 		break;
 	case Type::EXIT:
-		system("clear");
+		system("cls");
 		break;
 	default:
 		std::cout << "Wrong input!";
@@ -84,22 +85,22 @@ void Menu::personMenu()
 	switch (inputAsInt)
 	{
 	case ADD_PERSON:
-		system("clear");
+		system("cls");
 		addPerson();
 		break;
 	case DELETE_PERSON:
-		system("clear");
+		system("cls");
 		deletePerson();
 		break;
 	case ADD_ROLE:
 	{
-		system("clear");
+		system("cls");
 		std::string firstName, lastName;
 		std::cout << "first name = ";
 		std::cin >> firstName;
 		std::cout << "last name = ";
 		std::cin >> lastName;
-		Person *person;
+		Person *person = NULL;
 		try
 		{
 			person = persons.findByFullName(firstName, lastName);
@@ -110,10 +111,10 @@ void Menu::personMenu()
 		}
 
 		addRole(person);
-		system("clear"); 
+		system("cls");
 		break; }
 	case REMOVE_ROLE:
-		system("clear");
+		system("cls");
 		removeRole();
 	default:
 		std::cout << "Wrong input!";
@@ -144,15 +145,15 @@ void Menu::activityMenu()
 	switch (inputAsInt)
 	{
 	case ADD_ACTIVITY:
-		system("clear");
+		system("cls");
 		addActivity();
 		break;
 	case DELETE_ACTIVITY:
-		system("clear");
+		system("cls");
 		deleteActivity();
 		break;
 	case RETURN:
-		system("clear");
+		system("cls");
 		break;
 	default:
 		std::cout << "Wrong input";
@@ -184,23 +185,23 @@ void Menu::disciplineMenu()
 	switch (inputAsInt)
 	{
 	case ADD_DISCIPLINE:
-		system("clear");
+		system("cls");
 		addDiscipline();
 		break;
 	case DELETE_DISCIPLINE:
-		system("clear");
+		system("cls");
 		deleteDiscipline();
 		break;
 	case ADD_STUDENT_TO_DISCIPLINE:
-		system("clear");
+		system("cls");
 		addStudentToDiscipline();
 		break;
 	case REMOVE_STUDENT:
-		system("clear");
+		system("cls");
 		removeStudentFromDiscipline();
 		break;
 	case RETURN:
-		system("clear");
+		system("cls");
 		break;
 	default:
 		std::cout << "Wrong input!\n";
@@ -235,31 +236,31 @@ void Menu::studentRegisterMenu()
 	switch (inputAsInt)
 	{
 	case CREATE_STUDENT_REGISTER:
-		system("clear");
+		system("cls");
 		createStudentRegister();
 		break;
 	case DELETE_STUDENT_REGISTER:
-		system("clear");
+		system("cls");
 		deleteStudentRegister();
 		break;
 	case ADD_STUDENT:
-		system("clear");
+		system("cls");
 		addStudent();
 		break;
 	case REMOVE_STUDENT:
-		system("clear");
+		system("cls");
 		removeStudent();
 		break;
 	case ADD_GRADE:
-		system("clear");
+		system("cls");
 		addGrade();
 		break;
 	case UPDATE_GRADE:
-		system("clear");
+		system("cls");
 		updateGrade();
 		break;
 	case RETURN:
-		system("clear");
+		system("cls");
 		break;
 	default:
 		std::cout << "Wrong input!\n";
@@ -289,11 +290,11 @@ void Menu::repositoryMenu()
 	switch (inputAsInt)
 	{
 	case SEARCH_IN_REPOSITORY:
-		system("clear");
+		system("cls");
 		searchInRepository();
 		break;
 	case RETURN:
-		system("clear");
+		system("cls");
 		break;
 	default:
 		std::cout << "Wrong input!\n";
@@ -369,7 +370,7 @@ void Menu::addRole(Person *person)
 	}
 
 	case RETURN:
-		system("clear");
+		system("cls");
 		break;
 
 	default:
@@ -413,7 +414,7 @@ void Menu::deletePerson()
 		person = persons.findByFullName(firstName, lastName);
 
 		persons.remove(person);
-		system("clear");
+		system("cls");
 
 	}
 	case DELETE_BY_CNP:
@@ -426,10 +427,10 @@ void Menu::deletePerson()
 		person = persons.findByCNP(CNP);
 
 		persons.remove(person);
-		system("clear");
+		system("cls");
 	}
 	case RETURN:
-		system("clear");
+		system("cls");
 		break;
 	default:
 		std::cout << "Wrong input!\n";
@@ -532,7 +533,7 @@ void Menu::addDiscipline()
 	std::vector<Activity*> activities;
 
 	Activity *activity;
-	for (unsigned int i = 0; i < numberOfActivities; i++)
+	for (int i = 0; i < numberOfActivities; i++)
 	{
 		std::cout << "activity name = ";
 		std::cin >> activityName;
@@ -551,7 +552,7 @@ void Menu::deleteDiscipline()
 	std::cout << "discipline name = ";
 	std::cin >> disciplineName;
 
-	Discipline *discipline;
+	Discipline *discipline = NULL;
 
 	disciplines.remove(discipline);
 }
@@ -789,7 +790,7 @@ void Menu::searchInRepository()
 			person = persons.findByFullName(firstName, lastName);
 
 		std::cout << *person;
-		system("clear");
+		system("cls");
 		break;
 	}
 	case ROOMS:
@@ -845,11 +846,9 @@ void Menu::searchInRepository()
 		std::cout << "Discipline has " << discipline->getSizeOfParticipants() << " participants.\n";
 	}
 	case RETURN:
-		system("clear");
+		system("cls");
 		break;
 	default:
 		std::cout << "Wrong input!\n";
 	}
 }
-
-

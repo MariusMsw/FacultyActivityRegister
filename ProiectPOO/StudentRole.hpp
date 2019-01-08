@@ -28,7 +28,8 @@ public:
 	void addGrade(double grade, Discipline *discipline);
 	void removeGrade(Discipline *discipline);
 	void updateGrade(double grade, Discipline *discipline);
-
+	int getSizeOfGrades();
+	int getSizeOfDisciplines();
 	std::vector<Discipline*> getDisciplines();
 	void addDiscipline(Discipline* discipline);
 

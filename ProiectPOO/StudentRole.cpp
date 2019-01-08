@@ -97,6 +97,16 @@ void StudentRole::updateGrade(double grade, Discipline *discipline)
 	}
 }
 
+int StudentRole::getSizeOfGrades()
+{
+	return mGrades.size();
+}
+
+int StudentRole::getSizeOfDisciplines()
+{
+	return mDisciplines.size();
+}
+
 std::vector<Discipline*> StudentRole::getDisciplines()
 {
 	return mDisciplines;
