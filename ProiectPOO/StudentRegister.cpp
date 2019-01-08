@@ -58,6 +58,19 @@ void StudentRegister::removeByCNP(std::string CNP)
 	}
 }
 
+void StudentRegister::removeByFullName(std::string firstName, std::string lastName)
+{
+	std::vector<Person*>::iterator i;
+	for (i = mStudents.begin(); i != mStudents.end(); i++)
+	{
+		if ((*i)->getFirstName() == firstName && (*i)->getLastName() == lastName)
+		{
+			mStudents.erase(i);
+			break;
+		}
+	}
+}
+
 std::vector<Person*> StudentRegister::getStudents()
 {
 	return mStudents;

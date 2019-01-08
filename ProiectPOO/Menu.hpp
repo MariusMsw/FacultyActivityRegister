@@ -44,7 +44,6 @@ public:
 	void addStudent();
 	void removeStudent();
 	void addGrade();
-	void findStudent();
 	void updateGrade();
 
 	void searchInRepository();

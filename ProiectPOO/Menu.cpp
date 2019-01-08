@@ -217,13 +217,12 @@ void Menu::studentRegisterMenu()
 		REMOVE_STUDENT,
 		ADD_GRADE,
 		UPDATE_GRADE,
-		FIND_STUDENT_IN_REGISTER,
 		RETURN
 	};
 
 	std::cout << "Student Register Menu\n";
 	std::cout << "1.Create student register\n 2.Delete student register \n3. Add student to register \n";
-	std::cout<<"4.Remove student\n 5.Add grade\n6. Update grade\n7. Find student\n 8.Return\n";
+	std::cout<<"4.Remove student\n 5.Add grade\n6. Update grade\n 7.Return\n";
 	std::string input;
 
 	do {
@@ -258,10 +257,6 @@ void Menu::studentRegisterMenu()
 	case UPDATE_GRADE:
 		system("clear");
 		updateGrade();
-		break;
-	case FIND_STUDENT_IN_REGISTER:
-		system("clear");
-		findStudent();
 		break;
 	case RETURN:
 		system("clear");
@@ -488,5 +483,373 @@ void Menu::removeRole()
 	person->removeRole(role);
 }
 
+void Menu::addActivity()
+{
+	std::string activityName;
+	std::cout << "activity name = ";
+	std::cin >> activityName;
+	Person *person;
+
+	std::string firstName, lastName, roomName;
+	std::cout << "owner first name= ";
+	std::cin >> firstName;
+	std::cout << "owner last name= ";
+	std::cin >> lastName;
+
+		person = persons.findByFullName(firstName, lastName);
+
+	std::cout << "room name = ";
+	std::cin >> roomName;
+	Room *room;
+		room = rooms.findByName(roomName);
+
+	Activity *activity = new Activity(room, person, activityName);
+	activities.add(activity);
+}
+
+void Menu::deleteActivity()
+{
+	std::string activityName;
+	Activity *activity;
+
+	std::cout << "name of activity = ";
+	std::cin >> activityName;
+
+		activity = activities.findByDescription(activityName);
+
+	activities.remove(activity);
+}
+
+void Menu::addDiscipline()
+{
+	std::string disciplineName, activityName;
+	int numberOfActivities;
+	std::cout << "discipline name = ";
+	std::cin >> disciplineName;
+	std::cout << "number of activities = ";
+	std::cin >> numberOfActivities;
+
+	std::vector<Activity*> activities;
+
+	Activity *activity;
+	for (unsigned int i = 0; i < numberOfActivities; i++)
+	{
+		std::cout << "activity name = ";
+		std::cin >> activityName;
+
+		activities.push_back(activity);
+	}
+
+	Discipline *discipline = new Discipline(disciplineName, activities);
+	disciplines.add(discipline);
+}
+
+void Menu::deleteDiscipline()
+{
+	std::string disciplineName;
+
+	std::cout << "discipline name = ";
+	std::cin >> disciplineName;
+
+	Discipline *discipline;
+
+	disciplines.remove(discipline);
+}
+
+void Menu::addStudentToDiscipline()
+{
+	std::string firstName, lastName, disciplineName;
+	Person *student;
+	Discipline *discipline;
+
+	std::cout << "student first name = ";
+	std::cin >> firstName;
+	std::cout << "student last name = ";
+	std::cin >> lastName;
+	try {
+		student = persons.findByFullName(firstName, lastName);
+	}
+	catch (std::runtime_error const &e) {
+		std::cout << e.what() << "\n";
+		return;
+	}
+
+	if (!student->isStudent())
+	{
+		return;
+	}
+
+	std::cout << "discipline name = ";
+	std::cin >> disciplineName;
+	try {
+		discipline = disciplines.findByName(disciplineName);
+	}
+	catch (std::runtime_error const &e) {
+		std::cout << e.what() << "\n";
+		return;
+	}
+	discipline->addParticipant(student);
+}
+
+void Menu::removeStudentFromDiscipline()
+{
+	std::string firstName, lastName, disciplineName;
+	Discipline *discipline;
+
+	std::cout << "discipline name = ";
+	std::cin >> disciplineName;
+
+		discipline = disciplines.findByName(disciplineName);
+
+	std::cout << "student first name = ";
+	std::cin >> firstName;
+	std::cout << "student last name = ";
+	std::cin >> lastName;
+
+		discipline->removeParticipantByFullName(firstName, lastName);
+}
+
+void Menu::createStudentRegister()
+{
+	int year;
+	int group;
+	std::cout << "year = ";
+	std::cin >> year;
+	std::cout << "group = ";
+	std::cin >> group;
+	StudentRegister *studentRegister = new StudentRegister(group, year);
+	students.add(studentRegister);
+}
+
+void Menu::deleteStudentRegister()
+{
+	int year;
+	int group;
+	StudentRegister *studentRegister;;
+
+	std::cout << "year = ";
+	std::cin >> year;
+	std::cout << "group = ";
+	std::cin >> group;
+
+		studentRegister = students.findByGroupAndYear(group, year);
+
+	students.remove(studentRegister);
+}
+
+void Menu::addStudent()
+{
+	std::string firstName, lastName;
+	int year, group;
+	Person *student;
+	StudentRegister *studentRegister;
+
+	std::cout << "student first name = ";
+	std::cin >> firstName;
+	std::cout << "student last name = ";
+	std::cin >> lastName;
+
+		student = persons.findByFullName(firstName, lastName);
+
+	std::cout << "year = ";
+	std::cin >> year;
+	std::cout << "group = ";
+	std::cin >> group;
+
+		studentRegister = students.findByGroupAndYear(group, year);
+
+		studentRegister->addStudentToRegister(student);
+
+}
+
+void Menu::removeStudent()
+{
+	std::string firstName, lastName;
+	int group, year;
+	StudentRegister *studentRegister;
+
+	std::cout << "year = ";
+	std::cin >> year;
+	std::cout << "group = ";
+	std::cin >> group;
+
+		studentRegister = students.findByGroupAndYear(group, year);
+
+	std::cout << "students first name = ";
+	std::cin >> firstName;
+	std::cout << "students last name = ";
+	std::cin >> lastName;
+
+	studentRegister->removeByFullName(firstName, lastName);
+}
+
+void Menu::addGrade()
+{
+	Discipline *discipline;
+	StudentRegister *studentRegister;
+	std::string firstName, lastName, disciplineName;
+	int group, year;
+	double grade;
+
+	std::cout << "year = ";
+	std::cin >> year;
+	std::cout << "group = ";
+	std::cin >> group;
+
+		studentRegister = students.findByGroupAndYear(group, year);
+
+	std::cout << "discipline name = ";
+	std::cin >> disciplineName;
+
+		discipline = disciplines.findByName(disciplineName);
+
+	std::cout << "student first name = ";
+	std::cin >> firstName;
+	std::cout << "student last name = ";
+	std::cin >> lastName;
+
+		studentRegister->findByFullName(firstName, lastName);
+
+	std::cout << "grade = ";
+	std::cin >> grade;
+	studentRegister->addGrade(grade, discipline, firstName, lastName);
+}
+
+void Menu::updateGrade()
+{
+	std::string firstName, lastName, disciplineName;
+	int group, year;
+	double newGrade;
+	Person *student;
+	StudentRole *studentRole;
+	StudentRegister *studentRegister;
+
+	std::cout << "year = ";
+	std::cin >> year;
+	std::cout << "group = ";
+	std::cin >> group;
+
+		studentRegister = students.findByGroupAndYear(group, year);
+	
+	std::cout << "student first name = ";
+	std::cin >> firstName;
+	std::cout << "student last name = ";
+	std::cin >> lastName;
+
+		student = studentRegister->findByFullName(firstName, lastName);
+
+	std::cout << "discipline name = ";
+	std::cin >> disciplineName;
+
+	std::cout << "new grade = ";
+	std::cin >> newGrade;
+	Discipline *discipline;
+
+		discipline = disciplines.findByName(disciplineName);
+
+	studentRole = dynamic_cast<StudentRole*>(student->displayRole(1));
+
+		studentRole->updateGrade(newGrade, discipline);
+}
+
+void Menu::searchInRepository()
+{
+	enum Type {
+		PERSONS = 1,
+		ROOMS,
+		ACTIVITIES,
+		STUDENT_REGISTER,
+		DISCIPLINES,
+		RETURN
+	};
+
+	std::cout << "1.Persons\n 2.Rooms\n 3.Activities\n 4.StudentRegister\n 5.Discipline\n 6.Return\n";
+
+	std::string input;
+
+	do {
+		std::cout << "Choice: ";
+		std::cin >> input;
+	} while (!checkInput(input));
+
+	int inputAsInt = std::stoi(input);
+
+	switch (inputAsInt)
+	{
+	case PERSONS:
+	{
+		std::string firstName, lastName;
+		Person *person;
+
+		std::cout << "student first name = ";
+		std::cin >> firstName;
+		std::cout << "student last name = ";
+		std::cin >> lastName;
+
+			person = persons.findByFullName(firstName, lastName);
+
+		std::cout << *person;
+		system("clear");
+		break;
+	}
+	case ROOMS:
+	{
+		std::string roomName;
+		Room *room;
+
+		std::cout << "room name = ";
+		std::cin >> roomName;
+
+			room = rooms.findByName(roomName);
+
+		std::cout << "Room " << room->getName() << " exists.\n";
+	}
+	case ACTIVITIES:
+	{
+		std::string activityName;
+		Activity *activity;
+
+		std::cout << "activity name = ";
+		std::cin >> activityName;
+
+			activity = activities.findByDescription(activityName);
+
+		std::cout << "Location =  " << activity->getLocation() << "\n";
+		std::cout << "Owner = " << activity->getOwner() << "\n";
+	}
+	case STUDENTREGISTER:
+	{
+		int group, year;
+		StudentRegister *studentRegister;
+
+		std::cout << "year = ";
+		std::cin >> year;
+		std::cout << "group = ";
+		std::cin >> group;
+
+			studentRegister = students.findByGroupAndYear(group, year);
+
+		std::cout << "This register has " << studentRegister->getSize() << " students.\n";
+	}
+	case DISCIPLINES:
+	{
+		std::string disciplineName;
+		Discipline *discipline;
+
+		std::cout << "discipline name = ";
+		std::cin >> disciplineName;
+
+			discipline = disciplines.findByName(disciplineName);
+	
+		std::cout << "Discipline has " << discipline->getSizeOfActivities() << " activities.\n";
+		std::cout << "Discipline has " << discipline->getSizeOfParticipants() << " participants.\n";
+	}
+	case RETURN:
+		system("clear");
+		break;
+	default:
+		std::cout << "Wrong input!\n";
+	}
+}
 
 

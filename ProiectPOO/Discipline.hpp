@@ -10,7 +10,8 @@ public:
 
 	void setName(std::string name);
 	std::string getName();
-
+	int getSizeOfActivities();
+	int getSizeOfParticipants();
 	Activity *getActivity(std::string name);
 	std::vector<Activity*> getActivities();
 

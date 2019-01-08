@@ -1,10 +1,10 @@
 #include "StudentRepository.hpp"
 
-StudentRegister *StudentRepository::findByGroup(int group)
+StudentRegister *StudentRepository::findByGroupAndYear(int group, int year)
 {
 	for (unsigned int i = 0; i < mEntities.size(); i++)
 	{
-		if (mEntities[i]->getGroup() == group)
+		if (mEntities[i]->getGroup() == group && mEntities[i]->getYear() == year)
 			return mEntities[i];
 	}
 	return nullptr;

@@ -27,6 +27,16 @@ std::string Discipline::getName()
 	return mName;
 }
 
+int Discipline::getSizeOfActivities()
+{
+	return mActivities.size();
+}
+
+int Discipline::getSizeOfParticipants()
+{
+	return mParticipants.size();
+}
+
 Activity * Discipline::getActivity(std::string name)
 {
 	for (unsigned int i = 0; i < mActivities.size(); i++)

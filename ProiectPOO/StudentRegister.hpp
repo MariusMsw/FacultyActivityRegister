@@ -11,6 +11,7 @@ public:
 	Person *findByCNP(std::string CNP);
 	Person *findByEmail(std::string email);
 	void removeByCNP(std::string CNP);
+	void removeByFullName(std::string firstName, std::string lastName);
 	std::vector<Person*> getStudents();
 	void addGrade(double grade, Discipline *discipline, std::string lastName, std::string firstName);
 	void removeGrade(Discipline *discipline, std::string lastName, std::string firstName);
